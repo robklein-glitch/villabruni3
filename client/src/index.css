@@ -1,0 +1,289 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* 
+  Design Philosophy: Lujo Mediterráneo Sensorial
+  - Editorial luxury aesthetic inspired by architectural magazines
+  - Warm Mediterranean color palette: cream, olive green, antique gold
+  - Typography: Playfair Display (display) + Source Sans Pro (body) + Montserrat (subheadings)
+  - Emphasis on photography, depth, and cinematic interactions
+*/
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Mediterranean colors */
+  --color-olive: oklch(0.45 0.06 130);
+  --color-gold: oklch(0.65 0.08 75);
+  --color-terracotta: oklch(0.62 0.09 50);
+}
+
+:root {
+  /* Mediterranean luxury palette */
+  --primary: oklch(0.45 0.06 130); /* Olive green */
+  --primary-foreground: oklch(0.98 0.01 90);
+  --secondary: oklch(0.65 0.08 75); /* Antique gold */
+  --secondary-foreground: oklch(0.15 0.01 75);
+  --accent: oklch(0.62 0.09 50); /* Terracotta */
+  --accent-foreground: oklch(0.98 0.01 90);
+  
+  --background: oklch(0.98 0.01 90); /* Warm cream */
+  --foreground: oklch(0.25 0.01 90); /* Graphite gray */
+  --card: oklch(0.99 0.005 90);
+  --card-foreground: oklch(0.25 0.01 90);
+  --popover: oklch(0.99 0.005 90);
+  --popover-foreground: oklch(0.25 0.01 90);
+  
+  --muted: oklch(0.94 0.01 85); /* Stone gray */
+  --muted-foreground: oklch(0.50 0.01 90);
+  
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  
+  --border: oklch(0.90 0.01 85);
+  --input: oklch(0.90 0.01 85);
+  --ring: oklch(0.45 0.06 130);
+  
+  --radius: 0.5rem;
+  
+  --chart-1: oklch(0.45 0.06 130);
+  --chart-2: oklch(0.65 0.08 75);
+  --chart-3: oklch(0.62 0.09 50);
+  --chart-4: oklch(0.55 0.08 200);
+  --chart-5: oklch(0.70 0.05 160);
+  
+  --sidebar: oklch(0.98 0.01 90);
+  --sidebar-foreground: oklch(0.25 0.01 90);
+  --sidebar-primary: oklch(0.45 0.06 130);
+  --sidebar-primary-foreground: oklch(0.98 0.01 90);
+  --sidebar-accent: oklch(0.94 0.01 85);
+  --sidebar-accent-foreground: oklch(0.25 0.01 90);
+  --sidebar-border: oklch(0.90 0.01 85);
+  --sidebar-ring: oklch(0.45 0.06 130);
+}
+
+.dark {
+  --primary: oklch(0.55 0.08 130);
+  --primary-foreground: oklch(0.15 0.01 130);
+  --secondary: oklch(0.70 0.10 75);
+  --secondary-foreground: oklch(0.15 0.01 75);
+  --accent: oklch(0.65 0.10 50);
+  --accent-foreground: oklch(0.15 0.01 50);
+  
+  --background: oklch(0.15 0.01 90);
+  --foreground: oklch(0.95 0.01 90);
+  --card: oklch(0.18 0.01 90);
+  --card-foreground: oklch(0.95 0.01 90);
+  --popover: oklch(0.18 0.01 90);
+  --popover-foreground: oklch(0.95 0.01 90);
+  
+  --muted: oklch(0.25 0.01 90);
+  --muted-foreground: oklch(0.65 0.01 90);
+  
+  --destructive: oklch(0.60 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  
+  --border: oklch(0.25 0.01 90);
+  --input: oklch(0.25 0.01 90);
+  --ring: oklch(0.55 0.08 130);
+  
+  --chart-1: oklch(0.55 0.08 130);
+  --chart-2: oklch(0.70 0.10 75);
+  --chart-3: oklch(0.65 0.10 50);
+  --chart-4: oklch(0.60 0.10 200);
+  --chart-5: oklch(0.75 0.07 160);
+  
+  --sidebar: oklch(0.18 0.01 90);
+  --sidebar-foreground: oklch(0.95 0.01 90);
+  --sidebar-primary: oklch(0.55 0.08 130);
+  --sidebar-primary-foreground: oklch(0.15 0.01 130);
+  --sidebar-accent: oklch(0.25 0.01 90);
+  --sidebar-accent-foreground: oklch(0.95 0.01 90);
+  --sidebar-border: oklch(0.25 0.01 90);
+  --sidebar-ring: oklch(0.55 0.08 130);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  
+  h1 {
+    font-size: 2.5rem; /* Mobile first */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  
+  h2 {
+    font-size: 2.75rem;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .subheading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Luxury card with floating effect */
+  .card-luxury {
+    @apply bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Gradient overlay for hero images */
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Cinematic transitions */
+  .transition-cinematic {
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Custom animations for Mediterranean luxury feel */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-zoom-out {
+  animation: zoomOut 1.5s ease-out forwards;
+}
